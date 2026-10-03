@@ -1,393 +1,47 @@
-/* ============================================
-   CONFIGURACIÓN Y VARIABLES GLOBALES
-   ============================================ */
-
-const phrases = [
-    "Rebeja, eres mi felicidad.",
-    "Rebemonki, siempre tú.",
-    "Rebeja, mi lugar favorito eres tú.",
-    "Contigo, todo se siente bonito.",
-    "Rebemonki, qué bonito es amarte.",
-    "Te elegiría una y mil veces.",
-    "Rebeca, contigo estoy en casa. 🌙",
-    "Rebeja, tú haces bonito mi mundo.",
-    "A tu lado, soy más fuerte.",
-    "Para siempre y un día más.",
-    "Eres mi persona favorita.",
-    "A tu lado, todo florece."
-];
-
-let phraseIndex = 0;
-let petalCount = 0;
-let totalPetals = 12; // Número de pétalos frontales
-
-/* ============================================
-   CANVAS Y PARTÍCULAS
-   ============================================ */
-
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-const centerDiv = document.querySelector('.center');
-
-canvas.width = centerDiv.clientWidth;
-canvas.height = centerDiv.clientHeight;
-
-let particlesArray = [];
-
-class Particle {
-    constructor() {
-        this.x = canvas.width / 2;
-        this.y = canvas.height / 2;
-        this.vx = (Math.random() - 0.5) * 1.5;
-        this.vy = (Math.random() - 0.5) * 1.5;
-        this.size = Math.random() * 3 + 1;
-        this.life = 100;
-        this.maxLife = 100;
-    }
-
-    update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        this.life -= 1;
-    }
-
-    draw() {
-        ctx.beginPath();
-        ctx.globalAlpha = this.life / this.maxLife;
-        ctx.fillStyle = '#ffd700';
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.closePath();
-    }
-}
-
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-        particlesArray[i].draw();
-    }
-    particlesArray = particlesArray.filter(p => p.life > 0);
-    ctx.globalAlpha = 1;
-    requestAnimationFrame(animate);
-}
-
-/* ============================================
-   CREACIÓN DE PÉTALOS
-   ============================================ */
-
-function createPetals() {
-    const head = document.querySelector('.head');
-    const layers = [
-        { count: 16, className: 'petal-back', offset: 0 },
-        { count: 16, className: 'petal-middle', offset: 11.25 },
-        { count: 12, className: 'petal-front', offset: 15 }
-    ];
-
-    layers.forEach(layer => {
-        for (let i = 0; i < layer.count; i++) {
-            const petal = document.createElement('div');
-            petal.classList.add('petal', layer.className);
-            const angle = (360 / layer.count) * i + layer.offset;
-            petal.style.transform = `translate(-50%, -100%) rotate(${angle}deg)`;
-            
-            if (layer.className === 'petal-front') {
-                petal.classList.add('clickable');
-                petal.addEventListener('click', detachPetal);
-            }
-            
-            head.appendChild(petal);
-        }
-    });
-
-    // Contar pétalos frontales
-    petalCount = document.querySelectorAll('.petal-front').length;
-}
-
-/* ============================================
-   DESPRENDIMIENTO DE PÉTALOS
-   ============================================ */
-
-function detachPetal(event) {
-    const petal = event.currentTarget;
-    if (petal.classList.contains('falling')) return;
-
-    const welcomeMessage = document.querySelector('.welcome-message');
-    if (welcomeMessage) {
-        welcomeMessage.classList.add('is-hidden');
-        welcomeMessage.setAttribute('aria-hidden', 'true');
-    }
-
-    // Reproducir sonido de pétalo (opcional)
-    playPetalSound();
-
-    const computedStyle = window.getComputedStyle(petal);
-    petal.style.setProperty('--original-rotate', computedStyle.transform);
-    petal.classList.add('falling');
-
-    // Crear frase flotante
-    const phrase = document.createElement('div');
-    phrase.classList.add('floating-phrase');
-    phrase.textContent = phrases[phraseIndex % phrases.length];
-    phraseIndex++;
-    phrase.style.left = `${event.clientX}px`;
-    phrase.style.top = `${event.clientY}px`;
-    document.body.appendChild(phrase);
-
-    // Crear partículas doradas
-    for (let i = 0; i < 5; i++) {
-        particlesArray.push(new Particle());
-    }
-
-    petal.addEventListener('animationend', () => {
-        petal.remove();
-        checkFinalMessage();
-    }, { once: true });
-
-    phrase.addEventListener('animationend', () => phrase.remove(), { once: true });
-}
-
-/* ============================================
-   VERIFICAR MENSAJE FINAL
-   ============================================ */
-
-function checkFinalMessage() {
-    const remainingPetals = document.querySelectorAll('.petal-front:not(.falling)');
-    if (remainingPetals.length === 0) {
-        showFinalMessage();
-    }
-}
-
-function showFinalMessage() {
-    const finalMessage = document.getElementById('final-message');
-    const resetBtn = document.getElementById('reset-button');
-    
-    if (finalMessage) {
-        finalMessage.style.display = 'block';
-    }
-    
-    if (resetBtn) {
-        resetBtn.style.display = 'block';
-    }
-}
-
-/* ============================================
-   RENACER DEL GIRASOL
-   ============================================ */
-
-function resetSunflower() {
-    // Ocultar mensajes
-    const finalMessage = document.getElementById('final-message');
-    const resetBtn = document.getElementById('reset-button');
-    
-    if (finalMessage) finalMessage.style.display = 'none';
-    if (resetBtn) resetBtn.style.display = 'none';
-
-    const welcomeMessage = document.querySelector('.welcome-message');
-    if (welcomeMessage) {
-        welcomeMessage.classList.remove('is-hidden');
-        welcomeMessage.removeAttribute('aria-hidden');
-    }
-
-    // Remover todos los pétalos que cayeron
-    document.querySelectorAll('.petal').forEach(petal => petal.remove());
-
-    // Reiniciar contador
-    phraseIndex = 0;
-
-    // Recrear pétalos
-    createPetals();
-
-    // Reproducir sonido de renacer (opcional)
-    playRebirthSound();
-}
-
-// Event listener para el botón de renacer
-document.addEventListener('DOMContentLoaded', () => {
-    const resetBtn = document.getElementById('reset-button');
-    if (resetBtn) {
-        resetBtn.addEventListener('click', resetSunflower);
-    }
+const body=document.body;
+const themeBtn=document.getElementById("themeBtn");
+const savedTheme=localStorage.getItem("theme");
+if(savedTheme==="dark"){body.classList.add("dark");themeBtn.textContent="☀";}
+themeBtn.addEventListener("click",()=>{
+  body.classList.toggle("dark");
+  const dark=body.classList.contains("dark");
+  localStorage.setItem("theme",dark?"dark":"light");
+  themeBtn.textContent=dark?"☀":"☾";
 });
 
-/* ============================================
-   CAMPO DE ESTRELLAS (optimizado móvil)
-   ============================================ */
-
-function generarEstrellas(cantidad) {
-    let sombras = [];
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    for (let i = 0; i < cantidad; i++) {
-        const x = Math.floor(Math.random() * w);
-        const y = Math.floor(Math.random() * h);
-        sombras.push(`${x}px ${y}px white`);
-    }
-    return sombras.join(',');
-}
-
-function inicializarEstrellas() {
-    const esMobile = window.innerWidth < 480;
-    const cantidadPequeñas = esMobile ? 80 : 150;
-    const cantidadGrandes = esMobile ? 25 : 45;
-
-    const stars = document.getElementById('stars');
-    const starsBig = document.getElementById('stars-big');
-
-    if (stars) stars.style.boxShadow = generarEstrellas(cantidadPequeñas);
-    if (starsBig) starsBig.style.boxShadow = generarEstrellas(cantidadGrandes);
-}
-
-function inicializarLuciérnagas() {
-    const layer = document.getElementById('fireflies');
-    if (!layer) return;
-
-    layer.replaceChildren();
-    const cantidad = window.innerWidth < 480 ? 18 : 26;
-
-    for (let i = 0; i < cantidad; i++) {
-        const firefly = document.createElement('span');
-        firefly.className = 'firefly';
-        firefly.style.left = `${8 + Math.random() * 84}%`;
-        firefly.style.top = `${28 + Math.random() * 60}%`;
-        firefly.style.setProperty('--fly-duration', `${4 + Math.random() * 4}s`);
-        firefly.style.setProperty('--fly-delay', `${Math.random() * -6}s`);
-        firefly.style.setProperty('--fly-x', `${Math.round((Math.random() - 0.5) * 34)}px`);
-        layer.appendChild(firefly);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', inicializarEstrellas);
-document.addEventListener('DOMContentLoaded', inicializarLuciérnagas);
-
-// Regenerar si cambia el tamaño de pantalla (rotación de móvil, etc.)
-let resizeTimeout;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-        inicializarEstrellas();
-        inicializarLuciérnagas();
-    }, 300);
+document.querySelectorAll(".topic-title").forEach(btn=>{
+  btn.addEventListener("click",()=>btn.parentElement.classList.toggle("open"));
 });
 
-/* ============================================
-   ESTRELLAS FUGACES (con límite para móvil)
-   ============================================ */
-
-function createShootingStar() {
-    const star = document.createElement('div');
-    star.classList.add('shooting-star');
-    star.style.left = Math.random() * window.innerWidth + 'px';
-    document.body.appendChild(star);
-
-    star.addEventListener('animationend', () => star.remove(), { once: true });
-}
-
-setInterval(() => {
-    const esMobile = window.innerWidth < 480;
-    const probabilidad = esMobile ? 0.5 : 0.7; // menos frecuente en móvil
-    if (Math.random() > probabilidad) {
-        createShootingStar();
-    }
-}, window.innerWidth < 480 ? 5000 : 4000);
-
-/* ============================================
-   EFECTOS DE SONIDO (Opcional)
-   ============================================ */
-
-function playPetalSound() {
-    // Crear un sonido simple usando Web Audio API
-    try {
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioContext.createOscillator();
-        const gainNode = audioContext.createGain();
-
-        oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
-
-        oscillator.frequency.value = 800;
-        oscillator.type = 'sine';
-
-        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
-
-        oscillator.start(audioContext.currentTime);
-        oscillator.stop(audioContext.currentTime + 0.1);
-    } catch (e) {
-        // Silenciosamente ignorar si Web Audio API no está disponible
-    }
-}
-
-function playRebirthSound() {
-    try {
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const notes = [523.25, 659.25, 783.99]; // DO, MI, SOL
-
-        notes.forEach((freq, index) => {
-            setTimeout(() => {
-                const oscillator = audioContext.createOscillator();
-                const gainNode = audioContext.createGain();
-
-                oscillator.connect(gainNode);
-                gainNode.connect(audioContext.destination);
-
-                oscillator.frequency.value = freq;
-                oscillator.type = 'sine';
-
-                gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
-
-                oscillator.start(audioContext.currentTime);
-                oscillator.stop(audioContext.currentTime + 0.2);
-            }, index * 100);
-        });
-    } catch (e) {
-        // Silenciosamente ignorar si Web Audio API no está disponible
-    }
-}
-
-/* ============================================
-   INICIALIZACIÓN
-   ============================================ */
-
-window.addEventListener('load', () => {
-    createPetals();
-
-    const esMobile = window.innerWidth < 480;
-    const intervaloParticulas = esMobile ? 500 : 300;
-    const cantidadParticulas = esMobile ? 2 : 3;
-
-    // Crear partículas continuamente
-    setInterval(() => {
-        for (let i = 0; i < cantidadParticulas; i++) {
-            particlesArray.push(new Particle());
-        }
-    }, intervaloParticulas);
-
-    // Iniciar animación del canvas
-    animate();
+const search=document.getElementById("search");
+search.addEventListener("input",()=>{
+  const q=search.value.toLowerCase().trim();
+  document.querySelectorAll(".topic").forEach(topic=>{
+    const text=(topic.innerText+" "+topic.dataset.keywords).toLowerCase();
+    topic.style.display=text.includes(q)?"":"none";
+  });
 });
 
-/* ============================================
-   REDIMENSIONAMIENTO DEL CANVAS
-   ============================================ */
+function updateProgress(){
+  const max=document.documentElement.scrollHeight-window.innerHeight;
+  const value=max>0?Math.round((window.scrollY/max)*100):0;
+  document.getElementById("progressBar").style.width=value+"%";
+  document.getElementById("progressText").textContent=value+"%";
+}
+window.addEventListener("scroll",updateProgress);
+updateProgress();
 
-window.addEventListener('resize', () => {
-    const centerDiv = document.querySelector('.center');
-    canvas.width = centerDiv.clientWidth;
-    canvas.height = centerDiv.clientHeight;
-});
-
-/* ============================================
-   ACCESIBILIDAD - SOPORTE PARA TECLADO
-   ============================================ */
-
-document.addEventListener('keydown', (e) => {
-    // Presionar 'R' para renacer el girasol
-    if (e.key === 'r' || e.key === 'R') {
-        const resetBtn = document.getElementById('reset-button');
-        if (resetBtn && resetBtn.style.display !== 'none') {
-            resetSunflower();
-        }
-    }
+const answers={q1:"b",q2:"b",q3:"b",q4:"a",q5:"b",q6:"a",q7:"a",q8:"b",q9:"c",q10:"b"};
+document.getElementById("checkQuiz").addEventListener("click",()=>{
+  let score=0, unanswered=0;
+  Object.entries(answers).forEach(([q,a])=>{
+    const selected=document.querySelector(`input[name="${q}"]:checked`);
+    if(!selected){unanswered++;return;}
+    if(selected.value===a)score++;
+  });
+  document.getElementById("score").textContent=`${score}/10`;
+  const result=document.getElementById("quizResult");
+  result.textContent=unanswered
+    ? `Resultado: ${score}/10. Te faltan ${unanswered} pregunta(s) por responder.`
+    : `Resultado: ${score}/10. Revisa las secciones de los temas que todavía te cuesten.`;
 });
