@@ -1,251 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guía de Estudio — Química General y Orgánica</title>
-  <meta name="description" content="Guía de estudio de Química General y Orgánica para Ciencias de la Salud.">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Química CCSS — Guía Interactiva</title>
+<meta name="description" content="Guía interactiva de Química General y Orgánica para Ciencias de la Salud.">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="hero">
-  <nav class="nav">
-    <a class="brand" href="#inicio">🧪 Química CCSS</a>
-    <div class="nav-links">
-      <a href="#temario">Temario</a>
-      <a href="#formulas">Fórmulas</a>
-      <a href="#ejercicios">Ejercicios</a>
-      <a href="#quiz">Quiz</a>
-    </div>
-    <button id="themeBtn" class="icon-btn" aria-label="Cambiar tema">☾</button>
-  </nav>
-  <div class="hero-content" id="inicio">
-    <span class="eyebrow">GUÍA DE ESTUDIO</span>
-    <h1>Química General y Orgánica</h1>
-    <p>Resumen organizado para repasar funciones químicas, reacciones, energía, estequiometría, soluciones y ácidos–bases.</p>
-    <div class="hero-actions">
-      <a class="btn primary" href="#temario">Empezar a estudiar</a>
-      <a class="btn ghost" href="#quiz">Probar mis conocimientos</a>
-    </div>
-  </div>
+<nav class="nav">
+<a class="brand" href="#inicio">🧪 Química CCSS</a>
+<div class="nav-links">
+<a href="#temario">Temario</a><a href="#formulas">Fórmulas</a><a href="#ejercicios">Ejercicios</a><a href="#quiz">Quiz</a>
+</div>
+<button id="themeBtn" class="icon-btn">☾</button>
+</nav>
+<div class="hero-content" id="inicio">
+<span class="eyebrow">GUÍA INTERACTIVA · VERSIÓN 2.0</span>
+<h1>Química General y Orgánica</h1>
+<p>Estudia, practica y comprueba lo que sabes. Ahora con explicaciones sencillas y un quiz diferente en cada intento.</p>
+<div class="hero-actions"><a class="btn primary" href="#temario">Empezar a estudiar</a><a class="btn ghost" href="#quiz">🎯 Ir al quiz</a></div>
+</div>
 </header>
 
 <main>
-  <section class="stats">
-    <div><strong>8</strong><span>bloques de estudio</span></div>
-    <div><strong>15+</strong><span>conceptos clave</span></div>
-    <div><strong>10</strong><span>preguntas rápidas</span></div>
-    <div><strong>6</strong><span>fórmulas esenciales</span></div>
-  </section>
+<section class="stats">
+<div><strong>8</strong><span>temas</span></div><div><strong>60</strong><span>preguntas disponibles</span></div><div><strong>10</strong><span>preguntas por intento</span></div><div><strong>∞</strong><span>nuevos intentos</span></div>
+</section>
 
-  <section class="section" id="temario">
-    <div class="section-heading">
-      <div>
-        <span class="eyebrow">01 · TEMARIO</span>
-        <h2>Lo que necesitas dominar</h2>
-      </div>
-      <input id="search" class="search" type="search" placeholder="Buscar un concepto…">
-    </div>
+<section class="section" id="temario">
+<div class="section-heading"><div><span class="eyebrow">01 · TEMARIO</span><h2>Aprende por temas</h2></div><input id="search" class="search" type="search" placeholder="Buscar un concepto…"></div>
+<div class="progress-wrap"><div class="progress-label"><span>Progreso de lectura</span><strong id="progressText">0%</strong></div><div class="progress"><div id="progressBar"></div></div></div>
 
-    <div class="progress-wrap">
-      <div class="progress-label"><span>Progreso de lectura</span><strong id="progressText">0%</strong></div>
-      <div class="progress"><div id="progressBar"></div></div>
-    </div>
+<div class="topic-grid">
+<article class="topic" data-keywords="funciones químicas óxido hidróxido ácido sal nomenclatura stock iupac tradicional">
+<button class="topic-title">1. Funciones químicas inorgánicas <span>+</span></button>
+<div class="topic-body">
+<p>Las principales funciones trabajadas son <strong>óxido, hidróxido, ácido y sal</strong>.</p>
+<div class="mini-grid"><div><b>Óxido</b><br>Compuesto formado por oxígeno y otro elemento. Ej.: CaO, CO₂.</div><div><b>Hidróxido</b><br>Compuesto formado por un metal unido al grupo OH⁻. Ej.: NaOH.</div><div><b>Ácido</b><br>Se estudian ácidos hidrácidos y oxácidos. Ej.: HCl, H₂SO₄.</div><div><b>Sal</b><br>Ej.: NaCl, Na₂CO₃.</div></div>
+<h4>Nomenclaturas</h4><ul><li><strong>Stock:</strong> usa el número de oxidación cuando corresponde. Ej.: Fe₂O₃ → óxido de hierro (III).</li><li><strong>IUPAC/sistemática:</strong> usa prefijos. Ej.: Cl₂O₅ → pentaóxido de dicloro.</li><li><strong>Tradicional:</strong> emplea las formas históricas de denominación.</li></ul>
+<div class="example"><b>Ejemplos:</b> CuO → óxido de cobre (II) · Fe₂O₃ → óxido de hierro (III) · Al₂O₃ → óxido de aluminio (III).</div>
+<button class="explain-btn" data-explain="funciones">💡 Explícame esto de forma sencilla</button>
+<div class="explanation" id="exp-funciones"></div>
+</div></article>
 
-    <div class="topic-grid" id="topicGrid">
+<article class="topic" data-keywords="estructura molecular enlace químico iónico covalente metálico">
+<button class="topic-title">2. Estructura molecular y enlace químico <span>+</span></button>
+<div class="topic-body"><p>El enlace químico explica cómo se unen los átomos para formar sustancias.</p><div class="mini-grid"><div><b>Iónico</b><br>Asociado a transferencia de electrones y formación de iones.</div><div><b>Covalente</b><br>Asociado a compartición de electrones.</div><div><b>Metálico</b><br>Característico de los metales.</div></div><p class="tip">Relaciona el tipo de enlace con propiedades como conductividad, solubilidad y volatilidad cuando corresponda.</p><button class="explain-btn" data-explain="enlaces">💡 Explícame esto de forma sencilla</button><div class="explanation" id="exp-enlaces"></div></div></article>
 
-      <article class="topic" data-keywords="funciones químicas inorgánicas óxido hidróxido ácido sal nomenclatura stock iupac tradicional">
-        <button class="topic-title">1. Funciones químicas inorgánicas <span>+</span></button>
-        <div class="topic-body">
-          <p>Las principales funciones trabajadas son <strong>óxido, hidróxido, ácido y sal</strong>.</p>
-          <div class="mini-grid">
-            <div><b>Óxido</b><br>Compuesto formado por oxígeno y otro elemento. Ej.: CaO, CO₂.</div>
-            <div><b>Hidróxido</b><br>Compuesto formado por un metal unido al grupo OH⁻. Ej.: NaOH.</div>
-            <div><b>Ácido</b><br>Se estudian ácidos hidrácidos y oxácidos. Ej.: HCl, H₂SO₄.</div>
-            <div><b>Sal</b><br>Ej.: NaCl, Na₂CO₃.</div>
-          </div>
-          <h4>Nomenclaturas</h4>
-          <ul>
-            <li><strong>Stock:</strong> usa el número de oxidación cuando corresponde. Ej.: Fe₂O₃ → óxido de hierro (III).</li>
-            <li><strong>IUPAC/sistemática:</strong> emplea prefijos como mono-, di-, tri-, penta-, etc. Ej.: Cl₂O₅ → pentaóxido de dicloro.</li>
-            <li><strong>Tradicional:</strong> usa las formas históricas de denominación de los compuestos.</li>
-          </ul>
-          <div class="example"><b>Ejemplos para memorizar:</b> CuO → óxido de cobre (II) · Fe₂O₃ → óxido de hierro (III) · Al₂O₃ → óxido de aluminio (III).</div>
-        </div>
-      </article>
+<article class="topic" data-keywords="reacciones químicas lavoisier síntesis descomposición sustitución combustión neutralización">
+<button class="topic-title">3. Reacciones químicas <span>+</span></button>
+<div class="topic-body"><p>Una reacción representa la transformación de <strong>reactivos en productos</strong>. El balanceo debe respetar la conservación de los átomos.</p><div class="reaction-list"><div><span>Síntesis</span><code>A + B → AB</code></div><div><span>Descomposición</span><code>AB → A + B</code></div><div><span>Sustitución simple</span><code>A + BC → AC + B</code></div><div><span>Doble sustitución</span><code>AB + CD → AD + CB</code></div><div><span>Combustión</span><code>Hidrocarburo + O₂ → CO₂ + H₂O</code></div></div><div class="example"><b>Ejemplos:</b> CaCO₃ → CaO + CO₂ = descomposición · Zn + 2HCl → ZnCl₂ + H₂ = sustitución simple · AgNO₃ + NaCl → AgCl + NaNO₃ = doble sustitución.</div><p><strong>Neutralización:</strong> reacción entre un ácido y una base que produce sal y agua.</p><button class="explain-btn" data-explain="reacciones">💡 Explícame esto de forma sencilla</button><div class="explanation" id="exp-reacciones"></div></div></article>
 
-      <article class="topic" data-keywords="estructura molecular enlace químico iónico covalente metálico">
-        <button class="topic-title">2. Estructura molecular y enlace químico <span>+</span></button>
-        <div class="topic-body">
-          <p>El enlace químico explica cómo se unen los átomos para formar sustancias.</p>
-          <div class="mini-grid">
-            <div><b>Iónico</b><br>Asociado a transferencia de electrones y formación de iones.</div>
-            <div><b>Covalente</b><br>Asociado a compartición de electrones.</div>
-            <div><b>Metálico</b><br>Característico de los metales.</div>
-          </div>
-          <p class="tip">Relaciona el tipo de enlace con propiedades como conductividad, solubilidad y volatilidad cuando el material de clase lo solicite.</p>
-        </div>
-      </article>
+<article class="topic" data-keywords="energía exotérmica endotérmica activación catalizador enzimas sitio activo sustrato">
+<button class="topic-title">4. Energía, activación y catalizadores <span>+</span></button>
+<div class="topic-body"><div class="compare"><div><b>Exotérmica</b><p>Libera energía hacia el ambiente.</p></div><div><b>Endotérmica</b><p>Absorbe energía del ambiente.</p></div></div><p><strong>Energía de activación:</strong> energía mínima necesaria para que ocurra una reacción.</p><p><strong>Catalizadores:</strong> permiten disminuir la energía de activación sin consumirse permanentemente.</p><p><strong>Enzimas:</strong> principalmente proteínas con función catalítica. El <strong>sustrato</strong> es la sustancia sobre la que actúa la enzima y el <strong>sitio activo</strong> es la región donde se une.</p><button class="explain-btn" data-explain="energia">💡 Explícame esto de forma sencilla</button><div class="explanation" id="exp-energia"></div></div></article>
 
-      <article class="topic" data-keywords="reacciones químicas formulaciones lavoisier síntesis descomposición sustitución combustión neutralización">
-        <button class="topic-title">3. Reacciones químicas <span>+</span></button>
-        <div class="topic-body">
-          <p>Una reacción representa la transformación de <strong>reactivos en productos</strong>. El balanceo debe respetar la conservación de los átomos.</p>
-          <div class="reaction-list">
-            <div><span>Síntesis</span><code>A + B → AB</code></div>
-            <div><span>Descomposición</span><code>AB → A + B</code></div>
-            <div><span>Sustitución simple</span><code>A + BC → AC + B</code></div>
-            <div><span>Doble sustitución</span><code>AB + CD → AD + CB</code></div>
-            <div><span>Combustión</span><code>Hidrocarburo + O₂ → CO₂ + H₂O</code></div>
-          </div>
-          <div class="example"><b>Ejemplos:</b> CaCO₃ → CaO + CO₂ = descomposición · Zn + 2HCl → ZnCl₂ + H₂ = sustitución simple · AgNO₃ + NaCl → AgCl + NaNO₃ = doble sustitución.</div>
-          <p><strong>Neutralización:</strong> reacción entre un ácido y una base que produce sal y agua.</p>
-        </div>
-      </article>
+<article class="topic" data-keywords="estequiometría mol masa molar reactivo limitante">
+<button class="topic-title">5. Estequiometría <span>+</span></button>
+<div class="topic-body"><p>La estequiometría relaciona cantidades de reactivos y productos a partir de una ecuación química balanceada.</p><ul><li><strong>1 mol</strong> contiene aproximadamente <strong>6,022 × 10²³ partículas</strong>.</li><li><strong>Masa molar:</strong> masa de un mol de sustancia, en g/mol.</li><li><strong>Reactivo limitante:</strong> determina la cantidad máxima de producto.</li></ul><div class="formula">n = m / MM</div><div class="formula">m = n × MM</div><p class="tip">Ruta: balancea → convierte a moles → usa la proporción → convierte a la unidad solicitada.</p><button class="explain-btn" data-explain="estequiometria">💡 Explícame esto de forma sencilla</button><div class="explanation" id="exp-estequiometria"></div></div></article>
 
-      <article class="topic" data-keywords="energía exotérmica endotérmica energía activación catalizador enzimas sitio activo sustrato">
-        <button class="topic-title">4. Energía, activación y catalizadores <span>+</span></button>
-        <div class="topic-body">
-          <div class="compare">
-            <div><b>Exotérmica</b><p>Libera energía hacia el ambiente.</p></div>
-            <div><b>Endotérmica</b><p>Absorbe energía del ambiente.</p></div>
-          </div>
-          <p><strong>Energía de activación:</strong> energía mínima necesaria para que ocurra una reacción.</p>
-          <p><strong>Catalizadores:</strong> intervienen en las reacciones y permiten disminuir la energía de activación sin consumirse permanentemente.</p>
-          <p><strong>Enzimas:</strong> principalmente proteínas con función catalítica. El <strong>sustrato</strong> es la sustancia sobre la que actúa la enzima y el <strong>sitio activo</strong> es la región donde se une el sustrato.</p>
-        </div>
-      </article>
+<article class="topic" data-keywords="soluciones soluto solvente porcentaje molaridad normalidad dilución">
+<button class="topic-title">6. Soluciones y concentración <span>+</span></button>
+<div class="topic-body"><p>Una solución está formada por <strong>soluto y solvente</strong>. Generalmente, el solvente está en mayor proporción.</p><div class="formula">% m/m = (masa de soluto / masa de solución) × 100</div><div class="formula">% v/v = (volumen de soluto / volumen de solución) × 100</div><div class="formula">% m/v = (masa de soluto / volumen de solución) × 100</div><div class="formula">M = moles de soluto / litros de solución</div><div class="formula">N = θ × M</div><p><strong>Dilución:</strong> para una dilución de la misma sustancia se utiliza <code>M₁V₁ = M₂V₂</code>.</p><button class="explain-btn" data-explain="soluciones">💡 Explícame esto de forma sencilla</button><div class="explanation" id="exp-soluciones"></div></div></article>
 
-      <article class="topic" data-keywords="estequiometría mol masa molar reactivo limitante proporciones">
-        <button class="topic-title">5. Estequiometría <span>+</span></button>
-        <div class="topic-body">
-          <p>La estequiometría permite relacionar cantidades de reactivos y productos a partir de una ecuación química balanceada.</p>
-          <ul>
-            <li><strong>1 mol</strong> contiene aproximadamente <strong>6,022 × 10²³ partículas</strong>.</li>
-            <li><strong>Masa molar:</strong> masa correspondiente a un mol de sustancia, expresada en g/mol.</li>
-            <li><strong>Reactivo limitante:</strong> determina la cantidad máxima de producto que puede formarse.</li>
-          </ul>
-          <div class="formula">n = m / MM</div>
-          <div class="formula">m = n × MM</div>
-          <p class="tip">Ruta de resolución: balancea → convierte a moles → usa la proporción de la ecuación → convierte a la unidad solicitada.</p>
-        </div>
-      </article>
+<article class="topic" data-keywords="coloides suspensiones agua autoionización puentes hidrógeno">
+<button class="topic-title">7. Coloides, suspensiones y agua <span>+</span></button>
+<div class="topic-body"><p>Se estudia el comportamiento de <strong>soluciones, coloides y suspensiones</strong> en agua y sus diferencias.</p><p>El agua establece <strong>puentes de hidrógeno</strong> entre sus moléculas. En la autoionización se consideran variaciones de H⁺ y OH⁻.</p><div class="example">Si aumenta H⁺, el medio se desplaza hacia mayor acidez. Si disminuye H⁺ y aumenta OH⁻, se desplaza hacia mayor basicidad.</div><p>El agua puede participar en reacciones ácido–base y presenta comportamiento anfótero.</p><button class="explain-btn" data-explain="agua">💡 Explícame esto de forma sencilla</button><div class="explanation" id="exp-agua"></div></div></article>
 
-      <article class="topic" data-keywords="soluciones soluto solvente concentración porcentaje masa molaridad normalidad dilución">
-        <button class="topic-title">6. Soluciones y concentración <span>+</span></button>
-        <div class="topic-body">
-          <p>Una solución está formada por <strong>soluto y solvente</strong>. Generalmente, el solvente es el componente presente en mayor proporción.</p>
-          <h4>Unidades importantes</h4>
-          <div class="formula">% m/m = (masa de soluto / masa de solución) × 100</div>
-          <div class="formula">% v/v = (volumen de soluto / volumen de solución) × 100</div>
-          <div class="formula">% m/v = (masa de soluto / volumen de solución) × 100</div>
-          <div class="formula">M = moles de soluto / litros de solución</div>
-          <div class="formula">N = θ × M</div>
-          <p><strong>Dilución:</strong> cuando corresponde a una dilución de la misma sustancia se utiliza <code>M₁V₁ = M₂V₂</code>.</p>
-        </div>
-      </article>
+<article class="topic" data-keywords="ácidos bases arrhenius bronsted lowry ph neutralización">
+<button class="topic-title">8. Ácidos y bases <span>+</span></button>
+<div class="topic-body"><h4>Arrhenius</h4><p>La sesión aborda la teoría de Arrhenius para explicar ácidos y bases en solución acuosa.</p><h4>Brønsted–Lowry</h4><p>Interpreta las reacciones ácido–base mediante transferencia de protones.</p><div class="compare"><div><b>Ácido</b><p>Donador de protones.</p></div><div><b>Base</b><p>Aceptor de protones.</p></div></div><p><strong>pH:</strong> se relaciona con la concentración de H⁺ y caracteriza la acidez o basicidad.</p><button class="explain-btn" data-explain="acidos">💡 Explícame esto de forma sencilla</button><div class="explanation" id="exp-acidos"></div></div></article>
+</div>
+</section>
 
-      <article class="topic" data-keywords="coloides suspensiones agua autoionización enlaces hidrógeno">
-        <button class="topic-title">7. Coloides, suspensiones y agua <span>+</span></button>
-        <div class="topic-body">
-          <p>Se estudia el comportamiento de <strong>soluciones, coloides y suspensiones</strong> en agua y sus diferencias.</p>
-          <p>El agua puede establecer <strong>puentes de hidrógeno</strong> entre sus moléculas. En la autoionización del agua se consideran variaciones de H⁺ y OH⁻.</p>
-          <div class="example">Si aumenta H⁺, el medio se desplaza hacia mayor acidez. Si disminuye H⁺ y aumenta OH⁻, se desplaza hacia mayor basicidad.</div>
-          <p>El agua puede participar en reacciones ácido–base y presenta comportamiento anfótero.</p>
-        </div>
-      </article>
+<section class="section alt" id="formulas"><div class="section-heading"><div><span class="eyebrow">02 · FÓRMULAS</span><h2>Hoja rápida</h2></div></div><div class="formula-grid">
+<div class="formula-card"><span>Estequiometría</span><strong>n = m / MM</strong><small>moles = masa / masa molar</small></div>
+<div class="formula-card"><span>Masa</span><strong>m = n × MM</strong><small>masa = moles × masa molar</small></div>
+<div class="formula-card"><span>Molaridad</span><strong>M = n / V</strong><small>V en litros</small></div>
+<div class="formula-card"><span>Despeje</span><strong>n = M × V</strong><small>moles a partir de M y V</small></div>
+<div class="formula-card"><span>Dilución</span><strong>M₁V₁ = M₂V₂</strong><small>misma sustancia</small></div>
+<div class="formula-card"><span>Normalidad</span><strong>N = θ × M</strong><small>θ depende de H, OH o cargas</small></div>
+<div class="formula-card wide"><span>Porcentaje masa</span><strong>% m/m = (masa de soluto / masa de solución) × 100</strong><small>Ejemplo de clase: 8 g KCl + 42 g agua = 50 g de solución.</small></div>
+</div></section>
 
-      <article class="topic" data-keywords="ácidos bases arrhenius bronsted lowry ph neutralización">
-        <button class="topic-title">8. Ácidos y bases <span>+</span></button>
-        <div class="topic-body">
-          <h4>Arrhenius</h4>
-          <p>La sesión aborda la teoría de Arrhenius para explicar ácidos y bases en solución acuosa.</p>
-          <h4>Brønsted–Lowry</h4>
-          <p>Permite interpretar las reacciones ácido–base mediante la transferencia de protones.</p>
-          <div class="compare">
-            <div><b>Ácido</b><p>Donador de protones en el modelo de Brønsted–Lowry.</p></div>
-            <div><b>Base</b><p>Aceptor de protones en el modelo de Brønsted–Lowry.</p></div>
-          </div>
-          <p><strong>pH:</strong> se relaciona con la concentración de H⁺ y permite caracterizar la acidez o basicidad del medio.</p>
-        </div>
-      </article>
+<section class="section" id="ejercicios"><div class="section-heading"><div><span class="eyebrow">03 · PRÁCTICA</span><h2>Ejercicios para repasar</h2></div></div><div class="exercise-list">
+<details><summary>1. Identifica la función: CaO, NaOH, H₂SO₄, HCl y NaCl.</summary><p>CaO: óxido básico · NaOH: hidróxido · H₂SO₄: oxácido · HCl: ácido hidrácido · NaCl: sal.</p></details>
+<details><summary>2. Clasifica: CaCO₃ → CaO + CO₂.</summary><p><strong>Descomposición.</strong></p></details>
+<details><summary>3. Clasifica: Zn + 2HCl → ZnCl₂ + H₂.</summary><p><strong>Sustitución simple.</strong></p></details>
+<details><summary>4. Clasifica: AgNO₃ + NaCl → AgCl + NaNO₃.</summary><p><strong>Doble sustitución.</strong></p></details>
+<details><summary>5. ¿Qué ocurre en una neutralización?</summary><p>Un ácido reacciona con una base y se forman sal y agua.</p></details>
+<details><summary>6. ¿Qué es el reactivo limitante?</summary><p>Determina la cantidad máxima de producto que puede formarse.</p></details>
+<details><summary>7. 8 g de KCl y 42 g de agua. ¿Masa total?</summary><p><strong>50 g de solución.</strong></p></details>
+<details><summary>8. 2 mol de soluto en 1 L. ¿Molaridad?</summary><p>M = n/V = 2/1 = <strong>2 M</strong>.</p></details>
+</div></section>
 
-    </div>
-  </section>
+<section class="section alt" id="quiz">
+<div class="section-heading"><div><span class="eyebrow">04 · QUIZ ALEATORIO</span><h2>Comprueba lo que sabes</h2><p class="muted">Cada intento genera 10 preguntas diferentes tomadas de un banco de 60.</p></div><div class="quiz-top"><span id="score" class="score">0/10</span><span id="attempt" class="attempt">Intento 1</span></div></div>
+<div class="quiz-controls"><button class="btn primary" id="newQuiz">🔀 Generar nuevo quiz</button><label class="timer-toggle"><input type="checkbox" id="timerToggle"> ⏱️ Modo examen (10 min)</label><span id="timer" class="timer"></span></div>
+<form id="quizForm" class="quiz"></form>
+<div class="quiz-actions"><button type="button" class="btn primary" id="checkQuiz">✅ Calificar intento</button><button type="button" class="btn ghost dark-ghost" id="retryQuiz">🔄 Intentar nuevamente</button></div>
+<div id="quizResult" class="quiz-result"></div>
+</section>
 
-  <section class="section alt" id="formulas">
-    <div class="section-heading">
-      <div><span class="eyebrow">02 · FÓRMULAS</span><h2>Tu hoja rápida</h2></div>
-    </div>
-    <div class="formula-grid">
-      <div class="formula-card"><span>Estequiometría</span><strong>n = m / MM</strong><small>moles = masa / masa molar</small></div>
-      <div class="formula-card"><span>Masa</span><strong>m = n × MM</strong><small>masa = moles × masa molar</small></div>
-      <div class="formula-card"><span>Molaridad</span><strong>M = n / V</strong><small>V en litros de solución</small></div>
-      <div class="formula-card"><span>Despeje</span><strong>n = M × V</strong><small>moles a partir de M y V</small></div>
-      <div class="formula-card"><span>Dilución</span><strong>M₁V₁ = M₂V₂</strong><small>misma sustancia antes/después</small></div>
-      <div class="formula-card"><span>Normalidad</span><strong>N = θ × M</strong><small>θ depende del número de H, OH o cargas</small></div>
-      <div class="formula-card wide"><span>Porcentaje masa</span><strong>% m/m = (masa de soluto / masa de solución) × 100</strong><small>Ejemplo de clase: 8 g KCl + 42 g agua = 50 g de solución.</small></div>
-    </div>
-  </section>
-
-  <section class="section" id="ejercicios">
-    <div class="section-heading">
-      <div><span class="eyebrow">03 · PRÁCTICA</span><h2>Ejercicios para repasar</h2></div>
-    </div>
-    <div class="exercise-list">
-      <details><summary>1. Identifica la función: CaO, NaOH, H₂SO₄, HCl y NaCl.</summary><p>CaO: óxido básico · NaOH: hidróxido · H₂SO₄: oxácido · HCl: ácido hidrácido · NaCl: sal.</p></details>
-      <details><summary>2. Clasifica: CaCO₃ → CaO + CO₂.</summary><p><strong>Descomposición</strong>, porque un compuesto forma productos más simples.</p></details>
-      <details><summary>3. Clasifica: Zn + 2HCl → ZnCl₂ + H₂.</summary><p><strong>Sustitución simple</strong>.</p></details>
-      <details><summary>4. Clasifica: AgNO₃ + NaCl → AgCl + NaNO₃.</summary><p><strong>Doble sustitución</strong>.</p></details>
-      <details><summary>5. ¿Qué ocurre en una reacción de neutralización?</summary><p>Un ácido reacciona con una base y se forman sal y agua.</p></details>
-      <details><summary>6. ¿Qué es el reactivo limitante?</summary><p>Es el reactivo que determina la cantidad máxima de producto que puede formarse.</p></details>
-      <details><summary>7. Una solución tiene 8 g de KCl y 42 g de agua. ¿Cuál es su masa total?</summary><p>50 g de solución.</p></details>
-      <details><summary>8. ¿Cuál es la molaridad de una solución con 2 mol de soluto en 1 L?</summary><p>M = n/V = 2/1 = <strong>2 M</strong>.</p></details>
-    </div>
-  </section>
-
-  <section class="section alt" id="quiz">
-    <div class="section-heading">
-      <div><span class="eyebrow">04 · AUTOEVALUACIÓN</span><h2>Quiz rápido</h2></div>
-      <span id="score" class="score">0/10</span>
-    </div>
-    <form id="quizForm" class="quiz">
-      <div class="question"><p><b>1.</b> ¿Cuál es un óxido básico?</p><label><input type="radio" name="q1" value="a"> CO₂</label><label><input type="radio" name="q1" value="b"> CaO</label><label><input type="radio" name="q1" value="c"> H₂SO₄</label></div>
-      <div class="question"><p><b>2.</b> ¿Cuál es un hidróxido?</p><label><input type="radio" name="q2" value="a"> HCl</label><label><input type="radio" name="q2" value="b"> NaOH</label><label><input type="radio" name="q2" value="c"> CO₂</label></div>
-      <div class="question"><p><b>3.</b> CaCO₃ → CaO + CO₂ es:</p><label><input type="radio" name="q3" value="a"> Síntesis</label><label><input type="radio" name="q3" value="b"> Descomposición</label><label><input type="radio" name="q3" value="c"> Doble sustitución</label></div>
-      <div class="question"><p><b>4.</b> Zn + 2HCl → ZnCl₂ + H₂ es:</p><label><input type="radio" name="q4" value="a"> Sustitución simple</label><label><input type="radio" name="q4" value="b"> Síntesis</label><label><input type="radio" name="q4" value="c"> Combustión</label></div>
-      <div class="question"><p><b>5.</b> Una reacción que libera energía es:</p><label><input type="radio" name="q5" value="a"> Endotérmica</label><label><input type="radio" name="q5" value="b"> Exotérmica</label><label><input type="radio" name="q5" value="c"> Neutra</label></div>
-      <div class="question"><p><b>6.</b> La energía mínima para iniciar una reacción es:</p><label><input type="radio" name="q6" value="a"> Energía de activación</label><label><input type="radio" name="q6" value="b"> Energía molar</label><label><input type="radio" name="q6" value="c"> Energía de solución</label></div>
-      <div class="question"><p><b>7.</b> Un mol contiene aproximadamente:</p><label><input type="radio" name="q7" value="a"> 6,022 × 10²³ partículas</label><label><input type="radio" name="q7" value="b"> 6,022 × 10¹² partículas</label><label><input type="radio" name="q7" value="c"> 9,81 × 10²³ partículas</label></div>
-      <div class="question"><p><b>8.</b> La molaridad es:</p><label><input type="radio" name="q8" value="a"> gramos de soluto/L de solvente</label><label><input type="radio" name="q8" value="b"> moles de soluto/L de solución</label><label><input type="radio" name="q8" value="c"> moles de solvente/L de solución</label></div>
-      <div class="question"><p><b>9.</b> El reactivo que determina la cantidad máxima de producto es:</p><label><input type="radio" name="q9" value="a"> Solvente</label><label><input type="radio" name="q9" value="b"> Catalizador</label><label><input type="radio" name="q9" value="c"> Reactivo limitante</label></div>
-      <div class="question"><p><b>10.</b> En Brønsted–Lowry, una base es:</p><label><input type="radio" name="q10" value="a"> Donadora de protones</label><label><input type="radio" name="q10" value="b"> Aceptora de protones</label><label><input type="radio" name="q10" value="c"> Siempre un metal</label></div>
-      <button type="button" class="btn primary" id="checkQuiz">Calcular resultado</button>
-      <div id="quizResult" class="quiz-result"></div>
-    </form>
-  </section>
-
-  <section class="section final-note">
-    <div class="note">
-      <span class="eyebrow">PARA EL EXAMEN</span>
-      <h2>Estudia en este orden</h2>
-      <ol>
-        <li>Funciones químicas y nomenclatura.</li>
-        <li>Tipos de reacciones y balanceo.</li>
-        <li>Energía, catalizadores y enzimas.</li>
-        <li>Mol, masa molar y reactivo limitante.</li>
-        <li>Soluciones, porcentaje, molaridad, normalidad y diluciones.</li>
-        <li>Ácidos, bases, Arrhenius y Brønsted–Lowry.</li>
-      </ol>
-      <p class="source-note">Contenido organizado a partir de los materiales de clase proporcionados para Química General y Orgánica para Ciencias de la Salud y de la práctica integradora. La página no sustituye las diapositivas originales.</p>
-    </div>
-  </section>
+<section class="section final-note"><div class="note"><span class="eyebrow">PARA EL EXAMEN</span><h2>Estudia en este orden</h2><ol><li>Funciones químicas y nomenclatura.</li><li>Tipos de reacciones y balanceo.</li><li>Energía, catalizadores y enzimas.</li><li>Mol, masa molar y reactivo limitante.</li><li>Soluciones, concentración y diluciones.</li><li>Ácidos, bases, Arrhenius y Brønsted–Lowry.</li></ol><p class="source-note">Contenido organizado a partir de los materiales de clase proporcionados y la práctica integradora PC 02. La página complementa, pero no sustituye, las diapositivas originales.</p></div></section>
 </main>
-
-<footer>
-  <p>🧪 Guía de estudio · Química General y Orgánica · Ciencias de la Salud</p>
-</footer>
-
+<footer><p>🧪 Guía de estudio · Química General y Orgánica · Ciencias de la Salud</p></footer>
 <script src="script.js"></script>
 </body>
 </html>
