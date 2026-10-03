@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>🌻 Para mi Sol 🌻</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <!-- Google Fonts: Poppins (Muy legible y moderna) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="night-mode">
+
+  <!-- Fondo de estrellas -->
+  <div id="stars"></div>
+  <div id="stars-big"></div>
+  <div class="moon" aria-hidden="true">
+    <span class="moon-sparkle sparkle-one"></span>
+    <span class="moon-sparkle sparkle-two"></span>
+    <span class="moon-sparkle sparkle-three"></span>
+  </div>
+  <div class="cloud cloud-left" aria-hidden="true"></div>
+  <div class="cloud cloud-right" aria-hidden="true"></div>
+  <div class="cloud cloud-center" aria-hidden="true"></div>
+  <div id="fireflies" aria-hidden="true"></div>
+
+  <!-- Guía inicial para la interacción -->
+  <div class="welcome-message">
+    <span>Toca los pétalos</span>
+    <small>y descubre lo que siento por ti</small>
+  </div>
+
+  <!-- Contenedor principal del girasol -->
+  <div class="sunflower-container">
+    <div class="head">
+      <div class="center">
+        <canvas id="particle-canvas"></canvas>
+      </div>
+    </div>
+    <div class="stem"></div>
+    <div class="leaf leaf-1"></div>
+    <div class="leaf leaf-2"></div>
+  </div>
+
+  <!-- Dedicatoria -->
+  <div class="dedication">Para ti, mi Rebeja 🌻❤️</div>
+
+  <!-- Mensaje final -->
+  <div id="final-message">Te amo con todo mi corazón 💖</div>
+
+  <!-- Botón para renacer -->
+  <button id="reset-button" class="reset-btn">🌱 Florecer de Nuevo</button>
+
+  <!-- Audio de fondo -->
+  <audio id="bg-music" loop hidden>
+    <source src="ambiente.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <script src="script.js"></script>
+  
+  <script>
+    // Activar audio al primer toque/click
+    const startAudio = () => {
+      const music = document.getElementById('bg-music');
+      music.volume = 0.3;
+      music.play().catch(() => {});
+      document.removeEventListener('click', startAudio);
+      document.removeEventListener('touchstart', startAudio);
+    };
+    
+    document.addEventListener('click', startAudio);
+    document.addEventListener('touchstart', startAudio);
+  </script>
+
+</body>
+</html>
